@@ -10,7 +10,7 @@ class MenuBar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu fluid stackable>
+      <Menu fluid>
         <Menu.Item>
           <img src="avatar.png" alt="" />
         </Menu.Item>
