@@ -31,10 +31,10 @@ function Projects() {
           <Card.Content extra>
             <div className="ui two buttons">
               <Button basic color="green">
-                Live
+                View Live Version
               </Button>
               <Button basic color="red">
-                GitHub
+                View on GitHub
               </Button>
             </div>
           </Card.Content>
