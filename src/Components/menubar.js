@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Icon, Image } from "semantic-ui-react";
 
 class MenuBar extends Component {
   state = {};
@@ -10,9 +10,9 @@ class MenuBar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu fluid>
+      <Menu fluid widths={5} icon="labeled">
         <Menu.Item>
-          <img src="avatar.png" alt="" />
+          <Image src="avatar.png" size="mini" />
         </Menu.Item>
 
         <Menu.Item
@@ -20,6 +20,8 @@ class MenuBar extends Component {
           active={activeItem === "Resume"}
           onClick={this.handleItemClick}
         >
+          <Icon name="file alternate outline" />
+          {/* <Icon name="file pdf outline" /> */}
           Resume
         </Menu.Item>
 
@@ -28,6 +30,7 @@ class MenuBar extends Component {
           active={activeItem === "Projects"}
           onClick={this.handleItemClick}
         >
+          <Icon name="folder open outline" />
           Projects
         </Menu.Item>
 
@@ -35,7 +38,10 @@ class MenuBar extends Component {
           name="LinkedIn"
           active={activeItem === "LinkedIn"}
           onClick={this.handleItemClick}
+          href="https://www.linkedin.com/in/hemeshvpatel/"
+          target="_blank"
         >
+          <Icon name="linkedin" />
           LinkedIn
         </Menu.Item>
 
@@ -43,7 +49,10 @@ class MenuBar extends Component {
           name="GitHub"
           active={activeItem === "GitHub"}
           onClick={this.handleItemClick}
+          href="https://github.com/hemeshvpatel"
+          target="_blank"
         >
+          <Icon name="github" />
           GitHub
         </Menu.Item>
       </Menu>
