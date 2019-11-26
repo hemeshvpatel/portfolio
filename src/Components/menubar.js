@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Menu, Icon, Image } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Menu, Icon } from "semantic-ui-react";
 
 class MenuBar extends Component {
   state = {};
@@ -11,11 +12,21 @@ class MenuBar extends Component {
 
     return (
       <Menu fluid widths={5} icon="labeled">
-        <Menu.Item>
-          <Image src="avatar.png" size="mini" />
+        <Menu.Item
+          as={Link}
+          to="/"
+          name="About Me"
+          active={activeItem === "About Me"}
+          onClick={this.handleItemClick}
+        >
+          {/* <Image src="avatar.png" size="mini" /> */}
+          <Icon name="user secret" />
+          About Me
         </Menu.Item>
 
         <Menu.Item
+          as={Link}
+          to="/resume"
           name="Resume"
           active={activeItem === "Resume"}
           onClick={this.handleItemClick}
@@ -26,6 +37,8 @@ class MenuBar extends Component {
         </Menu.Item>
 
         <Menu.Item
+          as={Link}
+          to="/projects"
           name="Projects"
           active={activeItem === "Projects"}
           onClick={this.handleItemClick}
