@@ -1,13 +1,6 @@
 import React from "react";
 
-import {
-  Container,
-  Header,
-  Card,
-  Image,
-  Button,
-  Icon
-} from "semantic-ui-react";
+import { Container, Header, Card, Button, Icon } from "semantic-ui-react";
 
 function Projects() {
   return (
@@ -44,7 +37,7 @@ function Projects() {
               </Button>
               <Button basic color="black">
                 <Icon color="red" name="github" />
-                View GitHub
+                GitHub
               </Button>
             </Button.Group>
           </Card.Content>
@@ -77,7 +70,7 @@ function Projects() {
               </Button>
               <Button basic color="black">
                 <Icon color="red" name="github" />
-                View GitHub
+                GitHub
               </Button>
             </Button.Group>
           </Card.Content>

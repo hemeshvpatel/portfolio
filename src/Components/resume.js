@@ -1,41 +1,69 @@
 import React, { Component } from "react";
-import { Container, Header } from "semantic-ui-react";
+import { Document, Page } from "react-pdf";
+import throttle from "lodash.throttle";
 
-//react-pdf - Standard
-import { pdfjs, Document, Page } from "react-pdf/dist/entry.webpack";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+import myresume from "../images/myresume.pdf";
 
 class Resume extends Component {
-  state = {
-    numPages: null,
-    pageNumber: 1
+  constructor(props) {
+    super(props);
+    this.state = {
+      numPages: 0,
+      pageNumber: 1,
+      PDFWidth: null
+    };
+    this.myInput = React.createRef();
+  }
+
+  componentDidMount() {
+    // setting width at initial
+    this.setPDFWidth();
+
+    // event listener when window is resized
+    window.addEventListener("resize", throttle(this.setPDFWidth));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", throttle(this.setPDFWidth));
+  }
+
+  setPDFWidth = () => {
+    const width = this.myInput.current.offsetWidth;
+    this.setState({ PDFWidth: width });
   };
 
   onDocumentLoadSuccess = ({ numPages }) => {
     this.setState({ numPages });
   };
 
+  nextPage = () => {
+    const currentPageNumber = this.state.pageNumber;
+    let nextPageNumber;
+
+    if (currentPageNumber + 1 > this.state.numPages) {
+      nextPageNumber = 1;
+    } else {
+      nextPageNumber = currentPageNumber + 1;
+    }
+
+    this.setState({
+      pageNumber: nextPageNumber
+    });
+  };
+
   render() {
-    const { pageNumber, numPages } = this.state;
+    const { pageNumber, numPages, PDFWidth } = this.state;
 
     return (
-      <Container fluid textAlign="center">
-        <br />
-        <Header as="h2">My Resume</Header>
-        <p>adding a pdf viewer and downloader here for resume</p>
-        <br />
-        <div>
-          <Document
-            file="../../images/resume"
-            onLoadSuccess={this.onDocumentLoadSuccess}
-          >
-            <Page pageNumber={pageNumber} />
-          </Document>
-          <p>
-            Page {pageNumber} of {numPages}
-          </p>
-        </div>
-      </Container>
+      <div ref={this.myInput} onClick={this.nextPage}>
+        <Document file={myresume} onLoadSuccess={this.onDocumentLoadSuccess}>
+          <Page pageNumber={pageNumber} width={PDFWidth} />
+        </Document>
+
+        <p>
+          Page {pageNumber} of {numPages}
+        </p>
+      </div>
     );
   }
 }
