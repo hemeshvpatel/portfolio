@@ -14,8 +14,6 @@ function Projects() {
   return (
     <Container text textAlign="center">
       <br />
-      <Header as="h2">My Projects</Header>
-      <br />
       <Card.Group centered itemsPerRow={2} stackable>
         <Card raised>
           <Card.Content>
@@ -24,7 +22,7 @@ function Projects() {
             <Icon name="js" size="large" />
             <Icon name="react" size="large" />
             <Label color="red" horizontal attached="top right">
-              Active
+              Working on
             </Label>
           </Card.Content>
           <Card.Content>
@@ -123,39 +121,6 @@ function Projects() {
                 GitHub
               </Button>
             </Button.Group>
-          </Card.Content>
-        </Card>
-
-        <Card color="green">
-          <Card.Content>
-            <Icon name="gem" size="large" />
-            <Icon name="html5" size="large" />
-            <Icon name="js" size="large" />
-          </Card.Content>
-          <Card.Content>
-            <Card.Header>AppleXchange Duplicate</Card.Header>
-            <Card.Meta>Trading Website</Card.Meta>
-            <Card.Description>
-              A website where you can buy, sell, and trade Apple Products. Built
-              using Vanilla JavaScript and HTML.
-            </Card.Description>
-          </Card.Content>
-          <Card.Content>
-            <div className="ui two buttons">
-              <Button
-                basic
-                color="black"
-                href="https://applexchange.herokuapp.com/"
-                target="_blank"
-              >
-                <Icon color="green" name="play" />
-                Load Site
-              </Button>
-              <Button basic color="black">
-                <Icon color="red" name="github" />
-                GitHub
-              </Button>
-            </div>
           </Card.Content>
         </Card>
       </Card.Group>

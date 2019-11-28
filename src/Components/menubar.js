@@ -26,6 +26,17 @@ class MenuBar extends Component {
 
         <Menu.Item
           as={Link}
+          to="/projects"
+          name="Projects"
+          active={activeItem === "Projects"}
+          onClick={this.handleItemClick}
+        >
+          <Icon name="folder open outline" />
+          Projects
+        </Menu.Item>
+
+        <Menu.Item
+          as={Link}
           to="/resume"
           name="Resume"
           active={activeItem === "Resume"}
@@ -34,17 +45,6 @@ class MenuBar extends Component {
           <Icon name="file alternate outline" />
           {/* <Icon name="file pdf outline" /> */}
           Resume
-        </Menu.Item>
-
-        <Menu.Item
-          as={Link}
-          to="/projects"
-          name="Projects"
-          active={activeItem === "Projects"}
-          onClick={this.handleItemClick}
-        >
-          <Icon name="folder open outline" />
-          Projects
         </Menu.Item>
 
         <Menu.Item

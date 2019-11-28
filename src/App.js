@@ -1,5 +1,5 @@
 import React from "react";
-import HomePage from "./Components/homepage";
+import AboutMe from "./Components/aboutme";
 import MenuBar from "./Components/menubar";
 import Resume from "./Components/resume";
 import Projects from "./Components/projects";
@@ -14,7 +14,7 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <AboutMe />
         </Route>
         <Route exact path="/resume">
           <Resume />
