@@ -34,8 +34,8 @@ function AboutMe() {
         <Header as="h3">Web Development Skills</Header>
         <strong>Languages: </strong>ES6+ Javascript, CSS3, HTML5, Ruby
         <br />
-        <strong>Frameworks and Tools: </strong>React, Redux, Node.js, jQuery,
-        Git
+        <strong>Frameworks, Libraries, and Tools: </strong>React, Redux,
+        Node.js, jQuery, Git
         <br />
       </div>
     </Container>
